@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Whats new in v1.0.1</title>
+        <link rel="icon" href="favicon.svg">
+        <link rel="stylesheet" href="whatsnewstyle.css">
+    </head>
+    <body>
+        <h1>New Update!</h1>
+        <h2>v1.0.1</h2>
+        <div id="notes"></div>
+        <button id="okbutton" onclick='window.location.href = "index.html"'>Ok</button>
+        <script type="module">
+            import { marked } from "https://cdn.jsdelivr.net/npm/marked/lib/marked.esm.js";
+            document.getElementById('notes').innerHTML = marked.parse('- Removed Prompt block as it is not supported in Roblox scripts (might recreate)\n- Added On Clicked event.\n- Slightly adjusted Events color to enhance Text Visibility.\n- Fixed block tips');
+        </script>
+
+    </body>
+</html>

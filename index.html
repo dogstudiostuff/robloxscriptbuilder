@@ -258,15 +258,6 @@
 					</shadow>
 				</value>
 			</block>
-			<block type="text_prompt_ext">
-				<mutation type="TEXT"></mutation>
-				<field name="TYPE">TEXT</field>
-				<value name="TEXT">
-					<shadow type="text">
-						<field name="TEXT">abc</field>
-					</shadow>
-				</value>
-			</block>
 		</category>
 		<category name="Lists" colour="#cf4500">
 			<block type="lists_create_with">
@@ -444,6 +435,11 @@
 					<shadow type="parent"></shadow>
 				</value>
 			</block>
+			<block type="onclick">
+				<value name="PART">
+					<shadow type="parent"></shadow>
+				</value>
+			</block>
 		</category>
 		<sep></sep>
 		<category name="Variables" colour="#ff8800" custom="VARIABLE"></category>
@@ -451,6 +447,7 @@
 	</xml>
 	<script src="categoryStyle.js"></script>
 	<script src="main.js"></script>
+	<script src="updatemgr.js"></script>
 </body>
 
 </html>

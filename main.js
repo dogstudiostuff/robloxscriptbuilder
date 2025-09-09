@@ -59,7 +59,7 @@ Blockly.common.defineBlocksWithJsonArray([{
 	"message0": 'Workspace',
 	"output": "Part",
 	"colour": "#0059de",
-	"tooltip": "Gets the parent of your script",
+	"tooltip": "Gets the workspace of your script",
 }]);
 
 
@@ -102,7 +102,7 @@ Blockly.common.defineBlocksWithJsonArray([{
 	"previousStatement": null,
 	"nextStatement": null,
 	"colour": "#0059de",
-	"tooltip": "Sets the X position of a part",
+	"tooltip": "Sets the Y position of a part",
 	"inputsInline": true
 }]);
 
@@ -124,7 +124,7 @@ Blockly.common.defineBlocksWithJsonArray([{
 	"previousStatement": null,
 	"nextStatement": null,
 	"colour": "#0059de",
-	"tooltip": "Sets the X position of a part",
+	"tooltip": "Sets the Z position of a part",
 	"inputsInline": true
 }]);
 
@@ -146,7 +146,7 @@ Blockly.common.defineBlocksWithJsonArray([{
 	"previousStatement": null,
 	"nextStatement": null,
 	"colour": "#0059de",
-	"tooltip": "Sets the X position of a part",
+	"tooltip": "Sets the color of a part",
 	"inputsInline": true
 }]);
 
@@ -168,7 +168,7 @@ Blockly.common.defineBlocksWithJsonArray([{
 	"previousStatement": null,
 	"nextStatement": null,
 	"colour": "#0059de",
-	"tooltip": "Sets the X position of a part",
+	"tooltip": "Sets the vector of a part",
 	"inputsInline": true
 }]);
 
@@ -224,7 +224,7 @@ Blockly.common.defineBlocksWithJsonArray([{
 	}, ],
 	"output": "Number",
 	"colour": "#0059de",
-	"tooltip": "Gets the x position of a part",
+	"tooltip": "Gets the y position of a part",
 	"inputsInline": true
 }]);
 
@@ -239,7 +239,7 @@ Blockly.common.defineBlocksWithJsonArray([{
 	}, ],
 	"output": "Number",
 	"colour": "#0059de",
-	"tooltip": "Gets the x position of a part",
+	"tooltip": "Gets the z position of a part",
 	"inputsInline": true
 }]);
 
@@ -253,7 +253,7 @@ Blockly.common.defineBlocksWithJsonArray([{
 	}, ],
 	"output": "Part",
 	"colour": "#0059de",
-	"tooltip": "Gets the x position of a part",
+	"tooltip": "Creates a part and parents it to a specified instance",
 	"inputsInline": true
 }]);
 
@@ -268,7 +268,7 @@ Blockly.common.defineBlocksWithJsonArray([{
 	"previousStatement": null,
 	"nextStatement": null,
 	"colour": "#0059de",
-	"tooltip": "Gets the x position of a part",
+	"tooltip": "deletes a part",
 	"inputsInline": true
 }]);
 
@@ -334,7 +334,7 @@ Blockly.common.defineBlocksWithJsonArray([{
 	"message0": 'Random Color',
 	"output": "Color",
 	"colour": "#6f00ff",
-	"tooltip": "Makes a color",
+	"tooltip": "Makes a random color",
 	"inputsInline": true
 }]);
 
@@ -351,8 +351,26 @@ Blockly.common.defineBlocksWithJsonArray([{
 			"name": "CODE"
 		},
 	],
-	"colour": "#fcd303",
+	"colour": "#ffc919",
 	"tooltip": "When a part is touched, run the code.",
+	"inputsInline": true
+}]);
+
+Blockly.common.defineBlocksWithJsonArray([{
+	"type": "onclick",
+	"message0": 'On %1 Clicked %2',
+	"args0": [{
+			"type": "input_value",
+			"check": "Part",
+			"name": "PART"
+		},
+		{
+			"type": "input_statement",
+			"name": "CODE"
+		},
+	],
+	"colour": "#ffc919",
+	"tooltip": "When a part is clicked, run the code.",
 	"inputsInline": true
 }]);
 
@@ -455,6 +473,13 @@ lua.luaGenerator.forBlock['ontouch'] = function(block, generator) {
 	const code = generator.statementToCode(block, 'CODE');
 	return `${part}.Touched:Connect(function()\n${code}end)\n`;
 };
+
+lua.luaGenerator.forBlock['onclick'] = function(block, generator) {
+	const part = generator.valueToCode(block, 'PART', lua.Order.NONE)
+	const code = generator.statementToCode(block, 'CODE');
+	return `Instance.new("ClickDetector", ${part}).MouseClick:Connect(function()\n${code}end)\n`;
+};
+
 
 function generateCode() {
 	try {
