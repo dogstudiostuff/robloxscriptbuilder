@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Whats new in v1.1</title>
+        <link rel="icon" href="favicon.svg">
+        <link rel="stylesheet" href="whatsnewstyle.css">
+    </head>
+    <body>
+        <h1>New Update!</h1>
+        <h2><strong>v1.1 MEGA UPDATE</strong></h2>
+        <md>
+- **NEW CATEGORY: PLAYERS**
+- Added Ignore errors Logic block
+- Added Clone, Get Children, Get Child, And Set Parent blocks to the Parts category
+- Added Player that activated event Block in the Events category</md>
+        <div id="notes"></div>
+        <button id="okbutton" onclick='window.location.href = "index.html"'>Ok</button>
+        <script type="module">
+            import { marked } from "https://cdn.jsdelivr.net/npm/marked/lib/marked.esm.js";
+
+            // Select the <md> element
+            const mdElement = document.querySelector("md");
+            // Parse its text content into HTML
+            const parsedHTML = marked.parse(mdElement.textContent);
+            // Replace its content with the parsed HTML
+            mdElement.innerHTML = parsedHTML;
+        </script>
+
+    </body>
+</html>
