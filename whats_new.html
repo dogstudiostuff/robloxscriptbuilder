@@ -1,18 +1,32 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Whats new in v1.0.1</title>
+        <title>Whats new in v1.1</title>
         <link rel="icon" href="favicon.svg">
         <link rel="stylesheet" href="whatsnewstyle.css">
     </head>
     <body>
         <h1>New Update!</h1>
-        <h2>v1.0.1</h2>
+        <h2><strong>v1.1 MEGA UPDATE</strong></h2>
+        <md>
+- **NEW CATEGORIES: PLAYERS, SOUND, TOOLS**
+- Added Ignore errors Logic block
+- Added Clone, Get Children, Get Child, And Set Parent blocks to the Parts category
+- Added Player that activated event Block in the Events category
+- Added Rotation and Size Blocks!
+
+*Please note, i rushed this update log, so let me know if i missed anything!*</md>
         <div id="notes"></div>
         <button id="okbutton" onclick='window.location.href = "index.html"'>Ok</button>
         <script type="module">
             import { marked } from "https://cdn.jsdelivr.net/npm/marked/lib/marked.esm.js";
-            document.getElementById('notes').innerHTML = marked.parse('- Removed Prompt block as it is not supported in Roblox scripts (might recreate)\n- Added On Clicked event.\n- Slightly adjusted Events color to enhance Text Visibility.\n- Fixed block tips');
+
+            // Select the <md> element
+            const mdElement = document.querySelector("md");
+            // Parse its text content into HTML
+            const parsedHTML = marked.parse(mdElement.textContent);
+            // Replace its content with the parsed HTML
+            mdElement.innerHTML = parsedHTML;
         </script>
 
     </body>

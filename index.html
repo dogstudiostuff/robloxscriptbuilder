@@ -31,12 +31,15 @@
 			</block>
 			<block type="logic_null"></block>
 			<block type="logic_ternary"></block>
+			<block type="ignoreerrors"></block>
+			<block type="runwithoutwait"></block>
 			<block type="wait">
 				<value name="TIME">
 					<shadow type="math_number"></shadow>
 				</value>
 			</block>
 			<block type="waittick"></block>
+			<block type="waituntil"></block>
 		</category>
 		<category name="Loops" colour="#5ba55b">
 			<block type="controls_repeat_ext">
@@ -49,6 +52,7 @@
 			<block type="controls_whileUntil">
 				<field name="MODE">WHILE</field>
 			</block>
+			<block type="forever"></block>
 			<block type="controls_for">
 				<field name="VAR" id="E@6A?-7F+Xe};muVws3e">i</field>
 				<value name="FROM">
@@ -331,6 +335,17 @@
 		<category name="Style" colour="#6f00ff">
 			<block type="color"></block>
 			<block type="colorrandom"></block>
+			<block type="colorhsv">
+				<value name="HUE">
+					<shadow type="math_number"></shadow>
+				</value>
+				<value name="SAT">
+					<shadow type="math_number"></shadow>
+				</value>
+				<value name="VAL">
+					<shadow type="math_number"></shadow>
+				</value>
+			</block>
 		</category>
 		<category name="Vectors" colour="#1ec1c7">
 			<block type="newvector">
@@ -370,6 +385,67 @@
 				</value>
 				<value name="PART">
 					<shadow type="parent"></shadow>
+				</value>
+			</block>
+			<block type="rot_setxto">
+				<value name="XPOSITION">
+					<shadow type="math_number"></shadow>
+				</value>
+				<value name="PART">
+					<shadow type="parent"></shadow>
+				</value>
+			</block>
+			<block type="rot_setyto">
+				<value name="YPOSITION">
+					<shadow type="math_number"></shadow>
+				</value>
+				<value name="PART">
+					<shadow type="parent"></shadow>
+				</value>
+			</block>
+			<block type="rot_setzto">
+				<value name="ZPOSITION">
+					<shadow type="math_number"></shadow>
+				</value>
+				<value name="PART">
+					<shadow type="parent"></shadow>
+				</value>
+			</block>
+			<block type="size_setxto">
+				<value name="XPOSITION">
+					<shadow type="math_number"></shadow>
+				</value>
+				<value name="PART">
+					<shadow type="parent"></shadow>
+				</value>
+			</block>
+			<block type="size_setyto">
+				<value name="YPOSITION">
+					<shadow type="math_number"></shadow>
+				</value>
+				<value name="PART">
+					<shadow type="parent"></shadow>
+				</value>
+			</block>
+			<block type="size_setzto">
+				<value name="ZPOSITION">
+					<shadow type="math_number"></shadow>
+				</value>
+				<value name="PART">
+					<shadow type="parent"></shadow>
+				</value>
+			</block>
+
+			<block type="setparentto">
+				<value name="PARENT">
+					<shadow type="workspace"></shadow>
+				</value>
+				<value name="PART">
+					<shadow type="clonepart">
+						<value name="PART">
+							<shadow type="parent"></shadow>
+						</value>
+					</shadow>
 				</value>
 			</block>
 			<block type="setvectorto">
@@ -413,6 +489,59 @@
 					<shadow type="parent"></shadow>
 				</value>
 			</block>
+			<block type="rot_getxof">
+				<value name="PART">
+					<shadow type="parent"></shadow>
+				</value>
+			</block>
+			<block type="rot_getyof">
+				<value name="PART">
+					<shadow type="parent"></shadow>
+				</value>
+			</block>
+			<block type="rot_getzof">
+				<value name="PART">
+					<shadow type="parent"></shadow>
+				</value>
+			</block>
+			<block type="size_getxof">
+				<value name="PART">
+					<shadow type="parent"></shadow>
+				</value>
+			</block>
+			<block type="size_getyof">
+				<value name="PART">
+					<shadow type="parent"></shadow>
+				</value>
+			</block>
+			<block type="size_getzof">
+				<value name="PART">
+					<shadow type="parent"></shadow>
+				</value>
+			</block>
+			<block type="getchildren">
+				<value name="PART">
+					<shadow type="parent"></shadow>
+				</value>
+			</block>
+			<block type="getchild">
+				<value name="PART">
+					<shadow type="parent"></shadow>
+				</value>
+				<value name="CHILD">
+					<shadow type="text"></shadow>
+				</value>
+			</block>
+			<block type="getdescendants">
+				<value name="PART">
+					<shadow type="parent"></shadow>
+				</value>
+			</block>
+			<block type="getparent">
+				<value name="PART">
+					<shadow type="parent"></shadow>
+				</value>
+			</block>
 			<block type="vectorfrom">
 				<value name="PART">
 					<shadow type="parent"></shadow>
@@ -428,14 +557,159 @@
 					<shadow type="parent"></shadow>
 				</value>
 			</block>
+			<block type="clonepart">
+				<value name="PART">
+					<shadow type="parent"></shadow>
+				</value>
+			</block>
         </category>
-		<category name="Events" colour="#fcd303">
+		<category name="Events" colour="#ffb619">
 			<block type="ontouch">
 				<value name="PART">
 					<shadow type="parent"></shadow>
 				</value>
 			</block>
 			<block type="onclick">
+				<value name="PART">
+					<shadow type="parent"></shadow>
+				</value>
+			</block>
+			<block type="plrevent"></block>
+		</category>
+		<category name="Players" colour="#1c86ff">
+			<block type="killplayer">
+				<value name="PLAYER">
+					<shadow type="plrevent"></shadow>
+				</value>
+			</block>
+			<block type="damageplayer">
+				<value name="PLAYER">
+					<shadow type="plrevent"></shadow>
+				</value>
+				<value name="DAMAGE">
+					<shadow type="math_number"></shadow>
+				</value>
+			</block>
+			<block type="buypremium">
+				<value name="PLAYER">
+					<shadow type="plrevent"></shadow>
+				</value>
+			</block>
+			<block type="haspremium">
+				<value name="PLAYER">
+					<shadow type="plrevent"></shadow>
+				</value>
+			</block>
+			<block type="buygamepass">
+				<value name="PLAYER">
+					<shadow type="plrevent"></shadow>
+				</value>
+				<value name="PASS">
+					<shadow type="math_number"></shadow>
+				</value>
+			</block>
+			<block type="ownsgamepass">
+				<value name="PLAYER">
+					<shadow type="plrevent"></shadow>
+				</value>
+				<value name="PASS">
+					<shadow type="math_number"></shadow>
+				</value>
+			</block>
+			<block type="sitplayer">
+				<value name="PLAYER">
+					<shadow type="plrevent"></shadow>
+				</value>
+			</block>
+			<block type="kickplayer">
+				<value name="PLAYER">
+					<shadow type="plrevent"></shadow>
+				</value>
+			</block>
+			<block type="setwalkspeed">
+				<value name="PLAYER">
+					<shadow type="plrevent"></shadow>
+				</value>
+				<value name="SPEED">
+					<shadow type="math_number"></shadow>
+				</value>
+			</block>
+			<block type="setjumpheight">
+				<value name="PLAYER">
+					<shadow type="plrevent"></shadow>
+				</value>
+				<value name="HEIGHT">
+					<shadow type="math_number"></shadow>
+				</value>
+			</block>
+		</category>
+		<category name="Sound" colour="#bf42f5">
+			<block type="newsound">
+				<value name="ID">
+					<shadow type="math_number"></shadow>
+				</value>
+			</block>
+			<block type="playsound">
+				<value name="SOUND">
+					<shadow type="newsound">
+						<value name="ID">
+							<shadow type="math_number"></shadow>
+						</value>
+					</shadow>
+				</value>
+			</block>
+			<block type="playsoundandwait">
+				<value name="SOUND">
+					<shadow type="newsound">
+						<value name="ID">
+							<shadow type="math_number"></shadow>
+						</value>
+					</shadow>
+				</value>
+			</block>
+			<block type="issoundloaded">
+				<value name="SOUND">
+					<shadow type="newsound">
+						<value name="ID">
+							<shadow type="math_number"></shadow>
+						</value>
+					</shadow>
+				</value>
+			</block>
+			<block type="issoundplaying">
+				<value name="SOUND">
+					<shadow type="newsound">
+						<value name="ID">
+							<shadow type="math_number"></shadow>
+						</value>
+					</shadow>
+				</value>
+			</block>
+			<block type="emitsoundfrom">
+				<value name="SOUND">
+					<shadow type="newsound">
+						<value name="ID">
+							<shadow type="math_number"></shadow>
+						</value>
+					</shadow>
+				</value>
+				<value name="PART">
+					<shadow type="parent"></shadow>
+				</value>
+			</block>
+		</category>
+		<category name="Tools" colour="#919191">
+			<block type="tools_onclick">
+				<value name="PART">
+					<shadow type="parent"></shadow>
+				</value>
+			</block>
+			<block type="tools_onequip">
+				<value name="PART">
+					<shadow type="parent"></shadow>
+				</value>
+			</block>
+			<block type="tools_onunequip">
 				<value name="PART">
 					<shadow type="parent"></shadow>
 				</value>

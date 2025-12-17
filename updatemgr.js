@@ -1,4 +1,4 @@
-const CURRENT_VERSION = "1.0.1"
+const CURRENT_VERSION = "1.1"
 
 if (localStorage.getItem("gotUpdfor_" + CURRENT_VERSION) == null) {
     localStorage.setItem("gotUpdfor_" + CURRENT_VERSION, true)
